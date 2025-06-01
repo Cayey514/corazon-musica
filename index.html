@@ -11,12 +11,12 @@
 <body>
     <div class="particles" id="particles"></div>
     <div class="container">
-        <h1>para ti</h1>
+        <!--<h1>para ti</h1>-->
         <div class="heart-container">
             <div class="heart"></div>
         </div>
         <p class="message">con cariño❤️</p>
-        <button onclick="playMusic()"> una sorpresa</button>
+        <button onclick="playMusic()"> Tócame</button>
         <audio id="bgMusic" loop>
             <source src="Te vas asi.mp3" type="audio/mp3">
         </audio>
@@ -47,7 +47,51 @@
         setTimeout(() => {
             document.querySelector('.message').style.opacity = '1';
         }, 3000);
-        
     </script>
+
+<script>
+    const mensajes = [
+        "Eres increíble 🌟",
+        "Nunca dejes de soñar 💫",
+        "Te mereces lo mejor ❤️",
+        "Cree en ti 💪",
+        "Eres una estrella 🌠",
+        "Todo va a salir bien 😊",
+        "Tu sonrisa ilumina el día 🌞",
+        "Confía en el proceso 🌱",
+        "Lo estás haciendo genial 👏",
+        "Te admiro mucho 💖",
+        "Sigue brillando ✨",
+        "Eres más fuerte de lo que crees 💥",
+        "Gracias por existir 💕",
+        "Hoy es un buen día para sonreír 😄",
+        "Nunca te rindas 🚀",
+        "Eres puro amor 💘",
+        "La vida es mejor contigo 🌈",
+        "Siempre hay algo bueno por venir 🌷",
+        "Tu luz es única 🕊️",
+        "Te amo tal como eres 💌"
+    ];
+
+  document.body.addEventListener('click', function (e) {
+    const msg = document.createElement('span');
+    msg.className = 'mensaje-flotante';
+    msg.textContent = mensajes[Math.floor(Math.random() * mensajes.length)];
+    msg.style.left = e.clientX + 'px';
+    msg.style.top = e.clientY + 'px';
+
+    // Aleatorizar ángulo de rotación
+    const rotacion = (Math.random() * 20 - 10) + 'deg';
+    msg.style.transform = `translate(-50%, -50%) rotate(${rotacion})`;
+
+    document.body.appendChild(msg);
+
+    setTimeout(() => {
+        msg.remove();
+    }, 2000);
+});
+
+</script>
+
 </body>
 </html>
