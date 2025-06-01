@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cariño</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    <div class="container">
+        <h1>para ti</h1>
+        <div class="heart-container">
+            <div class="heart"></div>
+        </div>
+        <p class="message">con cariño❤️</p>
+        <button onclick="playMusic()"> una sorpresa</button>
+        <audio id="bgMusic" loop>
+            <source src="Te vas asi.mp3" type="audio/mp3">
+        </audio>
+    </div>
+
+    <script>
+        // Particle animation
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Music control
+        const music = document.getElementById('bgMusic');
+        function playMusic() {
+            music.play().then(() => {
+                alert('con todo el cariño que te tengo❤️');
+            }).catch(error => {
+                console.log('Music playback failed:', error);
+            });
+        }
+
+        // Auto-show message after 3 seconds
+        setTimeout(() => {
+            document.querySelector('.message').style.opacity = '1';
+        }, 3000);
+        
+    </script>
+</body>
+</html>
